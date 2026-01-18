@@ -6,7 +6,8 @@ import { useEffect } from "react"
 
 function App() {
   const [abierto, setAbierto] = useState(false)
-  const fechaEvento = new Date("2026-02-29T19:00:00");
+  const fechaEvento = new Date("2026-02-29T19:00:00-06:00");
+
   const mensajeWhats = encodeURIComponent(
     "Hola Adriana😊\nConfirmo mi asistencia a tu cumpleaños🎉"
   );
