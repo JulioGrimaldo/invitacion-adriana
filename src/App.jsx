@@ -152,7 +152,7 @@ function App() {
 
             </section>
             <a
-              href={`https://wa.me/529514967431?text=${mensajeWhats}`}
+              href={`https://wa.me/529511282254?text=${mensajeWhats}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center
