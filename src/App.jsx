@@ -49,8 +49,8 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-neutral-200 flex justify-center">
-      <div className="w-full max-w-sm min-h-screen ">
+    <div className="min-h-[100dvh] bg-neutral-200 flex justify-center overflow-x-hidden">
+      <div className="w-full min-h-[100dvh] md:max-w-sm">
         {!abierto ? (
           // Pantalla inicial con fondo
           <div
@@ -86,12 +86,10 @@ function App() {
 
           // Contenido de la invitación
           <main className="
-           w-full
-    min-h-screen
-    flex flex-col items-center
-    pt-16 pb-16
-    text-center space-y-5
-    animate-fade-in"
+            w-full min-h-[100dvh]
+             flex flex-col items-center
+             pt-12 pb-16
+             text-center space-y-5 animate-fade-in"
              style={{
               backgroundImage: `url(${fondo6})`,
               backgroundSize: "cover",
@@ -112,7 +110,7 @@ function App() {
             <div className="flex justify-center gap-4 ">
               {Object.entries(tiempo).map(([label, value]) => (
                 <div key={label} className="text-center">
-                  <div className="text-2xl font-pacifico text-[#3a3a3a]">
+                  <div className="text-3xl font-pacifico text-[#3a3a3a]">
                     {value}
                   </div>
                   <div className="text-xs uppercase tracking-wide font-gorditas text-[#616161]">
