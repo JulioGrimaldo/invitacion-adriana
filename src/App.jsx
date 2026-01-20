@@ -1,13 +1,17 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import fondo from "./assets/fondo.jpg"
 import fondo6 from "./assets/fondo 6.jpg"
-import { useEffect } from "react"
+
 
 
 function App() {
+
+
+
+  const audioRef = useRef(null);
   const [abierto, setAbierto] = useState(false)
   const fechaEvento = new Date(2026, 1, 28, 19, 0, 0);
-// Febrero = 1
+  // Febrero = 1
 
 
   const mensajeWhats = encodeURIComponent(
@@ -47,9 +51,18 @@ function App() {
 
     return () => clearInterval(intervalo);
   }, []);
+  useEffect(() => {
+    if (abierto && audioRef.current) {
+      audioRef.current.play().catch(() => { });
+    }
+  }, [abierto]);
+
 
   return (
     <div className="min-h-[100dvh] bg-neutral-200 flex justify-center overflow-x-hidden">
+      <audio ref={audioRef} loop>
+        <source src="/musica.mp3" type="audio/mpeg" />
+      </audio>
       <div className="w-full min-h-[100dvh] md:max-w-sm">
         {!abierto ? (
           // Pantalla inicial con fondo
@@ -90,12 +103,13 @@ function App() {
              flex flex-col items-center
              pt-12 pb-16
              text-center space-y-5 animate-fade-in"
-             style={{
+            style={{
               backgroundImage: `url(${fondo6})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
-            >
+          >
+            
             {/* Texto */}
             <h2 className="text-4xl font-pacifico text-[#3a3a3a]">
               ¿Cuándo?
@@ -126,7 +140,7 @@ function App() {
 
               <div className="relative w-full h-64 rounded-xl overflow-hidden shadow-sm">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d337.09032691161605!2d-96.71841262191444!3d17.085282927270526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c7211f0c38893b%3A0x953be75633484a17!2sS%C3%BAper%20Gil!5e0!3m2!1ses!2smx!4v1768624094224!5m2!1ses!2smx"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3206.82851930896!2d-96.71607370249862!3d17.09302394662601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c7218591309b31%3A0x5dcbfd04ac7f8223!2sParkids!5e0!3m2!1ses-419!2smx!4v1768883643754!5m2!1ses-419!2smx"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -135,7 +149,7 @@ function App() {
                   referrerPolicy="no-referrer-when-downgrade"
                 />
                 <a
-                  href="https://maps.app.goo.gl/a6S67aHPMffRfQ5T8"
+                  href="https://maps.app.goo.gl/de8hmHCndLRnA2K96"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="absolute bottom-4 left-1/2 -translate-x-1/2
